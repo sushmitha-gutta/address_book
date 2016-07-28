@@ -1,0 +1,8 @@
+$("#contact_detail").html("<%= j render 'create'%>");
+
+<% if @create_list==true %>
+	
+$("#contacts_table").html("<%= j render 'contacts_list'%>");
+
+<% end %>
+<%#contact_created(<%= @contact.to_json.html_safe %>

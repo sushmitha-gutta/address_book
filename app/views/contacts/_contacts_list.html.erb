@@ -1,0 +1,29 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= link_to contact.name, contact_path(contact), remote: true, data: {contact_id: contact.id} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @contacts, :params => { :controller => "contacts", :action => "index" } %>
+
+<script>
+ function contact_updated(contact){
+ $("a[data-contact-id='"+contact.id+"']").html(contact.name);
+ }
+ function contact_deleted(contact){
+   $("a[data-contact-id='"+contact.id+"']").closest('tr').remove();
+ }
+// function contact_created(contact){
+//   $('#contacts_table table tbody').append('<tr><td><a href="/contacts/'+contact.id+'" data-remote = "true" data-contact-id="'+contact.id+'">'+contact.name+'</a></td></tr>');
+// }
+</script>

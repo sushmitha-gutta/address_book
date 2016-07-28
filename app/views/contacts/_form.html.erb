@@ -1,0 +1,38 @@
+<div class="row">
+  <div class='col-md-6'>
+    
+    <%= simple_form_for @contact, html: { multipart:true, class: "contact-form"}, wrapper: :vertical_form, remote: true do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.check_box :active %>
+    <%= f.input :birthday %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :zipcode %>
+    <%= f.input :image, label: "Attachment"%>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <input type="hidden" value="<%= params[:page] %>" name= "page"> 
+    <% end %>
+  </div>
+</div>
+
+
+
+  
+
+
+<% if @contact.errors.any? %>
+  <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>

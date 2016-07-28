@@ -1,0 +1,64 @@
+
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @contact.name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @contact.phone %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @contact.active %>
+</p>
+
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @contact.birthday %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @contact.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @contact.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @contact.state %>
+</p>
+<p>
+  <strong>Zipcode:</strong>
+  <%= @contact.zipcode %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= @contact.image %>
+</p>
+<a href="<%= @contact.image.url %>">
+  <b> File attached </b></a>
+</br>
+<br/>
+<%= image_tag @contact.image.url(:med) %>
+<br/>
+
+
+
+<%= link_to 'Edit', edit_contact_path(@contact), remote: true, class: 'edit_contact'%> |
+<%= link_to 'Back', contacts_path %>
+<%= link_to 'Destroy',contact_path(@contact), data: { confirm: 'Are you sure?' }, method: :delete, remote: true, class: 'delete_contact' %>    
+  
+<%= link_to image_tag(@contact.image.url(:med)) %>
